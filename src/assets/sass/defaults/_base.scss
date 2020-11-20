@@ -1,101 +1,83 @@
-// Base css
-* {
-  box-sizing: border-box;
-}
-
-#app {
-  font-family: var(--primary-font);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: var(--dark-para);
-  box-sizing: border-box;
-  min-height: calc(100vh - 80px);
-}
-
+/* -- Base css
+-------------------------------------------- -- */
 html {
   font-size: 10px;
-  background-color: var(--color-white);
-  overflow-x: hidden;
-  // scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--primary-font);
-  font-size: 1.6rem;
-  line-height: 2.8rem;
-  color: var(--dark-para);
-  word-break: break-word;
-  overflow-x: hidden;
-  padding: 0;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  font-weight: 400;
+  color: var(--typo-para);
   margin: 0;
-  min-height: calc(100vh - 80px);
+  padding: 0;
+  background: var(--light-bg-color);
 }
 
-@include desktop {
-  .container {
-    max-width: 1260px;
-  }
+* {
+  box-sizing: border-box;
 }
 
-section,
-article,
-aside,
-main {
-  position: relative;
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: 0;
+  padding: 0;
 }
 
-figure {
-  margin-bottom: 0;
-}
-
-a {
-  color: inherit;
-}
-
-a,
-button,
+audio,
+canvas,
+iframe,
 img,
-a:focus,
-button:focus {
-  outline: none;
-  box-shadow: none;
+svg,
+video {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
 }
 
 a,
 button {
+  outline: none;
   transition: all 0.5s;
 }
 
-a:hover {
-  color: var(--action-color);
-  text-decoration: none;
-}
-
-.border-radius {
-  border-radius: var(--border-radius);
-}
-.disabled {
-  pointer-events: none;
-  opacity: 0.6;
-}
-
-.primary-color {
+a {
   color: var(--primary-color);
 }
-.secondary-color {
-  color: var(--secondary-color);
-}
-.action-color {
-  color: var(--action-color);
+
+a:hover {
+  color: var(--primary-color);
 }
 
+/* -- Print Media query
+---------------------------------------- -- */
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* -- Print styles- Inlined to avoid the additional HTTP request:
+----------------------------------------------------------------------------- */
 @media print {
   *,
   *:before,
   *:after {
     background: transparent !important;
-    color: #1c2b3c !important;
+    color: var(--typo-title) !important;
     /* Black prints faster */
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -127,7 +109,7 @@ a:hover {
 
   pre,
   blockquote {
-    border: 1px solid #d3d3d3;
+    border: 1px solid var(--border-color);
     page-break-inside: avoid;
   }
 
@@ -151,14 +133,5 @@ a:hover {
   h2,
   h3 {
     page-break-after: avoid;
-  }
-}
-
-.row-20 {
-  margin-left: -1rem;
-  margin-right: -1rem;
-  [class*="col-"] {
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 }

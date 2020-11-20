@@ -1,33 +1,30 @@
-/*-- Variables --*/
+// Custom Variables
 :root {
-  //Fonts
-
-  --primary-font: "Roboto", sans-serif;
+  --primary-font: "Poppins", sans-serif;
   --font-awesome: "Font Awesome 5 Pro";
+
   //Theme colors
-  --primary-color: #1898a5;
-  --primary-dark: #067b87;
-  --primary-light: #dcf7fe;
-  --secondary-color: #59169b;
-  //Complimentary colors
-  --comp-color-1: #4477ba;
-  --comp-color-2: #f39f3d;
-  //Action color
-  --action-color: #c21779;
-  //Typo colors
-  --typo-heading: #1c2b3c;
-  --typo-para: #4d4d4d;
-  --typo-para-2: #5d6d81;
-  --typo-light: #939393;
-  --border-color: #d3d3d3;
-  --input-border-color: rgba(24, 152, 165, 0.2);
-  //Others
-  --light-bg-color: #f9fafa;
-  --footer-bottom-bg: #f2f2f2;
+  --primary-color: #0094f5;
+  --typo-title: #1d1e20;
+  --typo-para: #474747;
+  --typo-light: #7b7b7b;
+  --border-color: #dce5ea;
+  --light-bg-color: #f2f3f6;
 
+  --color-orange: #f87f47;
+  --color-green: #1ec54a;
+  --color-green-dark: #00661b;
+  --color-green-light: #d2f3db;
+  --color-purple: #360066;
+  --color-purple-light: #d4c1e5;
+  --color-aqua-dark: #007678;
+  --color-aqua-light: #ddf9f9;
+  --color-pink-dark: #72003d;
+  --color-pink-light: #fdd7eb;
+  --color-blue-dark: #0094f5;
+  --color-blue-light: #cceafd;
+  --color-red: #f83939;
+  --color-red-light: #fed7d7;
   //Border-radius
-  --radius: 0.4rem;
-
-  // Shadows
-  --card-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.08);
+  --radius: 0.6rem;
 }

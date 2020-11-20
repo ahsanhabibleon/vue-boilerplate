@@ -1,12 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import Home from "@/views/Home/store";
+import global from "./global";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   strict: process.env.NODE_ENV !== "production",
   modules: {
-    Home
-  }
+    global
+  },
 });

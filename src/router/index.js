@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import NotFound from "@/components/global/NotFound.vue";
 
 Vue.use(VueRouter);
 
@@ -8,32 +8,47 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    props: true,
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */
+        "../components/views/Home"
+      ),
   },
   {
     path: "/about",
     name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    props: true,
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      import(
+        /* webpackChunkName: "about" */
+        "../components/views/About"
+      ),
   },
   {
-    path: "/register",
-    name: "Register",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "Register" */ "../views/Register.vue")
-  }
+    path: "*",
+    component: NotFound,
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  linkExactActiveClass: "is-active",
+  linkActiveClass: "",
+  scrollBehavior: (to) => {
+    if (to.hash) {
+      return {
+        selector: to.hash,
+      };
+    } else {
+      return {
+        x: 0,
+        y: 0,
+      };
+    }
+  },
+  routes,
 });
 
 export default router;

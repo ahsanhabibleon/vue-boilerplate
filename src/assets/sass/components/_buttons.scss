@@ -5,21 +5,26 @@ button {
   cursor: pointer;
   text-decoration: none;
 }
+a,
+button {
+  font-family: var(--primary-font);
+}
 
-.primary-btn {
+.primary-btn,
+.applyBtn {
   position: relative;
-  display: inline-block;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--primary-font);
+  font-size: 1.4rem;
+  line-height: 2rem;
   color: #fff;
   font-weight: 500;
-  text-transform: uppercase;
-  padding: 1.4rem 2rem 1.2rem;
-  background: var(--action-color);
-  border: 0.2rem solid var(--border-color);
-  border-width: 0;
+  padding: 0.6rem 1.5rem;
+  background: var(--primary-color);
+  border: 0.1rem solid var(--primary-color);
   outline: none;
-  border-radius: 0.4rem;
+  border-radius: var(--radius);
   text-decoration: none;
   z-index: 1;
   cursor: pointer;
@@ -53,7 +58,8 @@ button {
     left: 0;
   }
 
-  &:hover {
+  &:hover,
+  &.active {
     text-decoration: none;
     color: #fff;
 
@@ -68,69 +74,107 @@ button {
 
   @include mobile {
     font-size: 14px;
-    line-height: 2.4rem;
+  }
+  i,
+  svg {
+    margin-right: 1rem;
+    transition: all 0.5s;
+  }
+  i,
+  path {
+    transition: all 0.5s;
+  }
+  i {
+    color: inherit;
+  }
+  path {
+    stroke: inherit;
   }
 }
 
+.btn-big {
+  padding: 1rem 1.4rem;
+}
+.btn-mid {
+  padding: 0.7rem 1.5rem;
+}
+
 // Secondary button
-.secondary-btn {
+.secondary-btn,
+.cancelBtn {
   @extend .primary-btn;
-  background: transparent;
+  background: #fff;
   color: var(--typo-para);
-  border-width: 0.2rem;
-  padding: 1.2rem 2rem 1rem;
-
-  &.btn-mid {
-    font-size: 1.4rem;
-    padding: 0.9rem 2rem 0.7rem;
+  border-color: var(--border-color);
+  i {
+    color: var(--typo-para);
+  }
+  path {
+    stroke: var(--typo-para);
   }
 
-  // Small button
-  &.btn-small {
-    padding: 0.7rem 2rem 0.5rem;
-  }
-
-  &:hover {
-    border-color: var(--action-color);
-    color: var(--action-color);
+  &:hover,
+  &.active {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    i {
+      color: var(--primary-color);
+    }
+    path {
+      stroke: var(--primary-color);
+    }
   }
 
   &::after,
   &::before {
     display: none;
   }
+
+  &.dashed {
+    border: 0.1rem dashed var(--typo-light);
+    &:hover {
+      border-color: var(--primary-color);
+    }
+  }
 }
 
-// Medium button
-.btn-mid {
+.danger-btn {
   @extend .primary-btn;
-  font-size: 1.4rem;
-  padding: 1.2rem 2rem 1rem;
-}
-
-// Small button
-.btn-small {
-  @extend .primary-btn;
-  font-size: 1.4rem;
-  padding: 0.9rem 2rem 0.7rem;
+  background: var(--color-red-light);
+  color: var(--color-red);
+  border-color: var(--color-red-light);
+  &:hover {
+    color: var(--color-red);
+  }
+  path {
+    stroke: var(--color-red);
+  }
 }
 
 // Action link button
-.btn-link {
-  font-size: 1.7rem;
-  line-height: 2rem;
-  color: var(--action-color);
+.btn-link,
+.btn-txt {
   position: relative;
-  transition: all 0.5s;
+  display: inline-block;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--primary-color);
   text-decoration: underline;
+  background: transparent;
+  border: none;
+  font-weight: 500;
+  transition: all 0.5s;
 
   &:hover {
-    color: var(--action-color);
+    color: var(--primary-color);
   }
 
   &:focus {
     outline: none;
   }
+}
+.btn-txt {
+  text-decoration: none;
 }
 
 .button-group {
@@ -138,22 +182,84 @@ button {
   flex-wrap: wrap;
   align-items: center;
 
-  a {
-    &:not(:nth-last-of-type(1)) {
-      margin-right: 20px;
+  a,
+  button {
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  @media (max-width: 991px) {
+    a,
+    button,
+    .datepicker-wrapper,
+    .search-form,
+    .txt-btn-group {
+      margin-bottom: 1rem;
+      margin-left: 0 !important;
+      margin-right: 1rem;
+    }
+    .txt-btn-group {
+      margin-bottom: 0;
     }
   }
 
   &.centered {
     justify-content: center;
-    margin: 0 -1rem;
+    margin: 0 -0.5rem;
 
-    a {
+    a,
+    button {
       margin: 0 1rem;
     }
   }
 }
 
+.tab-btn-group {
+  a,
+  button {
+    line-height: 2.4rem;
+    font-weight: 400;
+    border: none;
+    border-radius: var(--radius) var(--radius) 0 0;
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+    &:hover,
+    &.active {
+      color: var(--primary-color);
+      background-color: var(--color-blue-light);
+    }
+  }
+  @media (max-width: 991px) {
+    margin-top: 1rem;
+    a,
+    button {
+      margin-bottom: 1rem;
+      border-radius: var(--radius);
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+td {
+  .btn-icon {
+    margin-bottom: 3px;
+  }
+}
+.btn-icon {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
 .disabled {
   pointer-events: none;
+}
+.only-icon {
+  padding: 0.9rem;
+  svg {
+    margin: 0;
+  }
 }

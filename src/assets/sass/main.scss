@@ -1,11 +1,9 @@
 @import "defaults/variables";
 @import "defaults/mixins";
-// @import "defaults/spacing";
-@import "defaults/typo";
+@import "defaults/typography";
 @import "defaults/base";
+@import "defaults/classes";
 @import "components/buttons";
 @import "components/forms";
-@import "components/card";
+// @import "components/pagination";
 @import "components/table";
-@import "components/pagination";
-@import "components/social-icons";

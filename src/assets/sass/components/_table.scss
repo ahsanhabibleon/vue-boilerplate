@@ -61,3 +61,121 @@
     }
   }
 }
+
+.chaos-table__row-offseted {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+
+  tr {
+    border: 0.1rem solid var(--border-color);
+  }
+  td {
+    line-height: 4.6rem;
+    border-top: 0.1rem solid var(--border-color);
+    border-bottom: 0.1rem solid var(--border-color);
+    &:first-child {
+      border-left: 0.1rem solid var(--border-color);
+      border-top-left-radius: var(--radius);
+      border-bottom-left-radius: var(--radius);
+      padding-left: 1rem;
+    }
+    &:last-child {
+      width: 4rem;
+      border-right: 0.1rem solid var(--border-color);
+      border-top-right-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+      svg {
+        margin-left: 0;
+      }
+      // text-align: center;
+    }
+    svg {
+      margin: 0 1rem;
+      vertical-align: -0.2rem;
+    }
+    &.doc {
+      width: 5rem;
+      text-align: center;
+      position: relative;
+      &::before {
+        content: " ";
+        position: absolute;
+        left: 0;
+        width: 0.1rem;
+        top: 0.8rem;
+        bottom: 1rem;
+        background: var(--light-bg-color);
+      }
+    }
+    &.source {
+      text-align: right;
+      padding-right: 1.8rem;
+    }
+  }
+}
+.table-component__table-wrapper {
+  overflow-x: hidden;
+}
+
+.chaos-table__row-collasped {
+  border-collapse: collapse;
+  border-spacing: 0;
+  td,
+  th {
+    padding: 1.3rem 2rem;
+  }
+  td {
+    border-bottom: 0.1rem solid var(--border-color);
+  }
+  tbody {
+    padding: 2rem;
+  }
+  th {
+    position: relative;
+    background: #dce5ea;
+    border: none;
+    color: var(--typo-title);
+
+    &::after {
+      transition: all 0.2s;
+    }
+  }
+}
+.sortable {
+  position: relative;
+  cursor: pointer;
+  &::after {
+    content: url("/img/icon-sort-arrow.svg");
+    display: inline-block;
+    margin-left: 1rem;
+  }
+}
+.chaos-datatable {
+  th {
+    input,
+    select {
+      padding: 0.1rem 1rem 0;
+      max-width: 12rem;
+      font-size: 1.4rem;
+    }
+    .select-dropdown-wrapper {
+      padding: 0.2rem 1rem;
+      border-color: #fff;
+      background: #fff;
+      .active-item {
+        font-size: 1.4rem;
+        color: var(--typo-light);
+        font-weight: 400;
+      }
+      .select-dropdown svg {
+        right: 0.7rem;
+      }
+    }
+  }
+}
+.date-and-time {
+  span {
+    color: var(--typo-light);
+    margin-left: 0.5rem;
+  }
+}
